@@ -47,19 +47,7 @@ pipeline {
     post {
         success {
             echo "✅ Pipeline validé avec succès !"
-            mail to: 'azmahboub@gmail.com',
-                 subject: "🚀 DEPLOY SUCCESS: WebApp Active [Build #${env.BUILD_NUMBER}]",
-                 body: """Bonjour Aziz,
-
-Le pipeline GitOps s'est exécuté sans aucune erreur.
-L'application web Nginx a été empaquetée et le conteneur est désormais en ligne.
-
-- Dépôt : ${env.GIT_URL}
-- Build de référence : #${env.BUILD_NUMBER}
-- URL Jenkins : ${env.BUILD_URL}
-
-L'automatisation Jenkins s'est déroulée avec succès."""
-        }
+                }
         failure {
             echo "🚨 Le pipeline a rencontré une erreur inattendue."
         }
